@@ -1,0 +1,9 @@
+<h2><%= current_user.name %>'s websites</h2>
+<% current_user.websites.each do |website| %>
+  <p>
+    <%= link_to website.address, edit_website_path(website) %> |
+    <%= link_to 'Delete', website, method: :delete, data: { confirm: 'Are you sure?' } %>
+  </p>
+<% end %>
+
+<p><%= link_to 'Add Website', new_website_path %></p>

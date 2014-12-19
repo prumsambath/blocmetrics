@@ -1,0 +1,15 @@
+<%= form_for website do |f| %>
+  <% if website.errors.any? %>
+    <h3>There are <%= pluralize(website.errors.count, 'error') %></h3>
+    <ul>
+      <% website.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <%= f.label :address %>
+  <%= f.text_field :address %>
+
+  <%= f.submit 'Save Website' %>
+<% end %>
