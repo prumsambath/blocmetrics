@@ -2,6 +2,7 @@ class WebsitesController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    @websites = Website.user_websites(current_user)
   end
 
   def new
