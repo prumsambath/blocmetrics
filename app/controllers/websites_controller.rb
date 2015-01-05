@@ -45,6 +45,6 @@ class WebsitesController < ApplicationController
   private
 
   def websites_params
-    params.require(:website).permit(:address)
+    params.require(:website).permit(:address, :name, :description, :verified)
   end
 end
