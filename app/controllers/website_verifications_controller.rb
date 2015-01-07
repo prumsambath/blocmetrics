@@ -4,7 +4,6 @@ class WebsiteVerificationsController < ApplicationController
     html = HTTParty.get(website.address).parsed_response
     doc = Nokogiri::HTML(html)
     token = doc.xpath('//meta/@blocmetrics_verification')
-    p token
 
     if !token.empty? && token.first.value == website.token
       website.verified = true
