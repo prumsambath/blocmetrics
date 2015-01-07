@@ -13,6 +13,8 @@ users = User.all
 
 100.times do
   Website.create!(
+    name: Faker::Name.name,
+    description: Faker::Lorem.sentence,
     address: Faker::Internet.url,
     user: users.sample
   )

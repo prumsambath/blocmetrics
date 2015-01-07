@@ -3,6 +3,6 @@ class AddColumnsToWebsites < ActiveRecord::Migration
     add_column :websites, :name, :string
     add_column :websites, :description, :string
     add_column :websites, :token, :string
-    add_column :websites, :verified, :boolean
+    add_column :websites, :verified, :boolean, default: false
   end
 end
