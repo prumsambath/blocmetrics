@@ -13,6 +13,8 @@ gem 'foundation-rails'
 gem 'sass-rails'
 gem 'devise'
 gem 'figaro'
+gem 'httparty'
+gem 'nokogiri'
 
 group :development do
   gem 'sqlite3'

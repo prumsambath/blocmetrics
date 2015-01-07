@@ -2,6 +2,7 @@ class WebsitesController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    @websites = current_user.websites.all
   end
 
   def new
@@ -42,9 +43,13 @@ class WebsitesController < ApplicationController
     redirect_to websites_path
   end
 
+  def show
+    @website = Website.find(params[:id])
+  end
+
   private
 
   def websites_params
-    params.require(:website).permit(:address)
+    params.require(:website).permit(:address, :name, :description, :verified)
   end
 end
