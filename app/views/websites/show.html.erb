@@ -1,0 +1,10 @@
+<h1><%= @website.name %></h1>
+
+<p><%= @website.description %></p>
+
+<% if @website.verified %>
+  <p>Verified</p>
+<% else %>
+  <p>Not yet verified</p>
+  <%= link_to 'Verify Website', website_verifications_path(id: @website.id), method: :post %>
+<% end %>

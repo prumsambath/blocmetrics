@@ -2,7 +2,7 @@ class WebsitesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @websites = Website.user_websites(current_user)
+    @websites = current_user.websites.all
   end
 
   def new
@@ -41,6 +41,10 @@ class WebsitesController < ApplicationController
     website.destroy
     flash[:notice] = 'The website was deleted successfully.'
     redirect_to websites_path
+  end
+
+  def show
+    @website = Website.find(params[:id])
   end
 
   private
