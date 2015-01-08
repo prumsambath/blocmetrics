@@ -1,10 +1,10 @@
 <h1><%= @website.name %></h1>
 
+<p><%= link_to @website.address, @website.address %></p>
+
 <p><%= @website.description %></p>
 
-<% if @website.verified %>
-  <p>Verified</p>
-<% else %>
-  <p>Not yet verified</p>
-  <%= link_to 'Verify Website', website_verifications_path(id: @website.id), method: :post %>
+<p>Token: <strong><%= @website.token %></strong></p>
+<% unless @website.verified %>
+  <%= link_to 'Verify Website', website_verifications_path(id: @website.id), method: :post, class: 'btn btn-success' %>
 <% end %>
