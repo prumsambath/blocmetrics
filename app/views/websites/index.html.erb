@@ -1,9 +1,26 @@
-<h2><%= current_user.name %>'s websites</h2>
-<% current_user.websites.each do |website| %>
-  <p>
-    <%= link_to website.address, website %> |
-    <%= link_to 'Delete', website, method: :delete, data: { confirm: 'Are you sure?' } %>
-  </p>
-<% end %>
+<div class="col-md-8">
+<table class="table" >
+  <caption><h3><%= current_user.name %>'s websites<h3></caption>
+  <tr>
+    <th>Website Name</th>
+    <th>Address Link</th>
+    <th>Status</th>
+  </tr>
+  <% current_user.websites.each do |website| %>
+    <tr>
+      <td><%= link_to website.name, website %></td>
+      <td><%= website.address %></td>
+      <td>
+        <% if website.verified %>
+          <span class="label label-success">Verified</span>
+        <% else %>
+          <span class="label label-danger">Unverified</span>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>
 
-<p><%= link_to 'Add Website', new_website_path %></p>
+<p><%= link_to 'Add Website', new_website_path, class: 'btn btn-success' %></p>
+</div>
+
