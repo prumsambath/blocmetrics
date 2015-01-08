@@ -1,21 +1,29 @@
-<%= form_for website do |f| %>
-  <% if website.errors.any? %>
-    <h3>There are <%= pluralize(website.errors.count, 'error') %></h3>
-    <ul>
-      <% website.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-    </ul>
+<fieldset class="col-md-4">
+  <%= form_for website do |f| %>
+    <% if website.errors.any? %>
+      <h3>There are <%= pluralize(website.errors.count, 'error') %></h3>
+      <ul>
+        <% website.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    <% end %>
+
+    <div class="form-group">
+      <%= f.label :address, 'Address link' %>
+      <%= f.text_field :address, class: 'form-control', placeholder: 'http://example.com' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :name, 'Website name' %>
+      <%= f.text_field :name, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :description %>
+      <%= f.text_field :description, class: 'form-control' %>
+    </div>
+
+    <%= f.submit 'Save Website', class: 'btn btn-success' %>
   <% end %>
-
-  <%= f.label :address %>
-  <%= f.text_field :address %>
-
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-
-  <%= f.label :description %>
-  <%= f.text_field :description %>
-
-  <%= f.submit 'Save Website' %>
-<% end %>
+</fieldset>
