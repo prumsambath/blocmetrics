@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resources :website_verifications, only: :create
 
+  post '/api/events' => 'api/v1/events#create'
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
       resources :events

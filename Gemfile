@@ -15,6 +15,7 @@ gem 'devise'
 gem 'figaro'
 gem 'httparty'
 gem 'nokogiri'
+gem 'rack-cors', require: 'rack/cors'
 
 group :development do
   gem 'sqlite3'
