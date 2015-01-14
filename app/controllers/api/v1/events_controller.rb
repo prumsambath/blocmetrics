@@ -23,18 +23,9 @@ class API::V1::EventsController < ApplicationController
     end
   end
 
-  def update
-    @event = Event.find(params[:id])
-    if @event.update(event_params)
-      head :no_content
-    else
-      render @event.errors, status: :unprocessable_entity
-    end
-  end
-
   private
 
   def event_params
-    params.require(:event).permit(:name, :property)
+    params.require(:event).permit(:name, :meta)
   end
 end
