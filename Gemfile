@@ -16,6 +16,7 @@ gem 'figaro'
 gem 'httparty'
 gem 'nokogiri'
 gem 'rack-cors', require: 'rack/cors'
+gem 'chartkick'
 
 group :development do
   gem 'sqlite3'

@@ -8,3 +8,14 @@
 <% unless @website.verified %>
   <%= link_to 'Verify Website', website_verifications_path(id: @website.id), method: :post, class: 'btn btn-success' %>
 <% end %>
+
+<h3>Event Data for Application <%= @website.name %></h3>
+
+<div class="row">
+  <div class="col-md-5">
+    <%= pie_chart @website.events.group(:name).count %>
+  </div>
+  <div class="col-md-5">
+    <%= line_chart @website.events.group(:name).count %>
+  </div>
+</div>

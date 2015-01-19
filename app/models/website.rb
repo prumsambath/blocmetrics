@@ -1,5 +1,6 @@
 class Website < ActiveRecord::Base
   belongs_to :user
+  has_many :events
 
   validates :address, presence: true
   validates :name, presence: true

@@ -16,6 +16,7 @@ class API::V1::EventsController < ApplicationController
     not_found if website.nil? or !website.verified
 
     @event = Event.new(event_params)
+    @event.website = website
     if @event.save
       render json: @event, status: :created
     else
