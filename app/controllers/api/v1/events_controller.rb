@@ -27,6 +27,7 @@ class API::V1::EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:name, :meta)
+    unknown_property_keys = params[:event][:meta].try(:keys)
+    params.require(:event).permit(:name, { meta: unknown_property_keys })
   end
 end
