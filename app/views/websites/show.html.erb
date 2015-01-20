@@ -19,3 +19,10 @@
     <%= line_chart @website.events.group(:name).count %>
   </div>
 </div>
+
+<div class="row">
+  <p>
+    Download:
+    <%= link_to "CSV", website_path(@website, format: 'csv') %>
+  </p>
+</div>

@@ -7,6 +7,15 @@ class Website < ActiveRecord::Base
 
   before_create :generate_token
 
+  def to_csv
+    CSV.generate do |csv|
+      csv << Event.column_names
+      self.events.each do |event|
+        csv << event.attributes.values_at(*Event.column_names)
+      end
+    end
+  end
+
   private
 
   def generate_token
