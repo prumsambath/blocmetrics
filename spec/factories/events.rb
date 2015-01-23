@@ -3,8 +3,6 @@ FactoryGirl.define do
     name "event name"
     meta({ "page_view" => "Welcome page" })
 
-    website
-
     factory :invalid_event do
       name ""
     end
